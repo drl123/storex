@@ -23,7 +23,8 @@ defmodule StorexWeb.Plugs.CurrentUser do
   def set(conn, user) do
     conn
     |> put_session(@session_name, user.id)
+    |> assign_user(user)
   end
 
-  def get(conn), do: conn.assigns(@assign_name)
+  def get(conn), do: conn.assigns[@assign_name]
 end

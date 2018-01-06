@@ -35,3 +35,5 @@
   <h2 class="value-tag__title">total</h2>
   <span class="value-tag__content"><%= format_price(@total) %></span>
 </div>
+
+<%= link "Checkout", to: checkout_path(@conn, :new), class: "button button-primary" %>
