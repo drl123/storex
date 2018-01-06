@@ -1,6 +1,7 @@
 defmodule StorexWeb.SessionController do
   use StorexWeb, :controller
   alias Storex.Accounts
+  alias StorexWeb.Plugs.CurrentUser
 
   def new(conn, _params) do
     render(conn, "new.html")
@@ -11,6 +12,7 @@ defmodule StorexWeb.SessionController do
      {:ok, user} ->
        conn
        |> put_flash(:info, "Welcom to Storex")
+       |> CurrentUser.set(user)
        |> redirect(to: cart_path(conn, :show))
 
      {:error, _} ->
