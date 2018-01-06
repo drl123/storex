@@ -3,7 +3,7 @@ defmodule StorexWeb.UserController do
   alias Storex.Accounts
   alias StorexWeb.Plugs.CurrentUser
 
-  def new(conn, params) do
+  def new(conn, _params) do
     changeset = Accounts.new_user()
     render(conn, "new.html", changeset: changeset)
   end
