@@ -26,7 +26,7 @@ defmodule Storex.Store do
     |> Repo.update()
   end
 
-  def delete(book) do
+  def delete_book(book) do
     Repo.delete(book)
   end
 end
