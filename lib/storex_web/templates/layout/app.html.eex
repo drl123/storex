@@ -14,6 +14,9 @@
       <a href="/" class="main-nav__logo"></a>
 
       <ul class="main-nav__links">
+        <%= if @is_admin do %>
+          <li><%= link "New Book", to: book_path(@conn, :new) %></li>
+        <% end %>
         <%= if @current_user do %>
           <li><%= @current_user.full_name %></li>
         <% else %>

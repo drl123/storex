@@ -9,6 +9,7 @@ defmodule Storex.Accounts.User do
     field :full_name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+    field :is_admin, :boolean
 
     timestamps()
   end
@@ -33,5 +34,10 @@ defmodule Storex.Accounts.User do
 
   def check_password(user, password) do
     Comeonin.Bcrypt.check_pass(user, password)
+  end
+
+  def admin_changeset(%User{} = user, attrs) do
+    user
+    |> cast(attrs, [:is_admin])
   end
 end

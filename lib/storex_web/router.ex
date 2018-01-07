@@ -20,9 +20,8 @@ defmodule StorexWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", BookController, :index
-    get "/books", BookController, :index
-    get "/books/:id", BookController, :show
 
+    resources "/books",     BookController
     resources "/carts",     CartController,     only: [:show, :create, :delete], singleton: true
     resources "/users",     UserController,     only: [:new, :create]
     resources "/sessions",  SessionController,  only: [:new, :create], singleton: true
